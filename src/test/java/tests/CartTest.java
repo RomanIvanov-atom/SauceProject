@@ -11,7 +11,7 @@ import static org.testng.Assert.*;
 
 public class CartTest extends BaseTest {
 
-    @Test
+    @Test (testName = "Some test name", description = "описание. для тестРепортов", enabled = true)
     public void checkAdd1ItemInCart() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
