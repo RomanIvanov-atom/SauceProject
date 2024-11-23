@@ -1,5 +1,6 @@
 package tests;
 
+import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import products.Products;
@@ -8,7 +9,8 @@ import static products.Credentials.*;
 
 public class CheckoutClientInfoTest extends BaseTest {
 
-    @Test
+    @Test (testName = "Проверка заполнения полной информации о клиенте валидными данными",
+            description = "Проверка заполнения полной информации о клиенте валидными данными")
     public void checkFillClientInfoFieldsWithValidData() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -24,7 +26,8 @@ public class CheckoutClientInfoTest extends BaseTest {
                 "'Continue' button doesn't work properly");
     }
 
-    @Test()
+    @Test (testName = "Проверка заполнения полной информации о клиенте невалидными данными",
+            description = "Проверка заполнения полной информации о клиенте невалидными данными")
     public void checkFillClientInfoFieldsWithInvalidData() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
