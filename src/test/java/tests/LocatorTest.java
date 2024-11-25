@@ -1,11 +1,13 @@
 package tests;
 
+import base.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 public class LocatorTest extends BaseTest {
 
-    @Test
+    @Test (testName = "Технический тест на проверку возвможности находить локаторы разными способами",
+            description = "Технический тест на проверку возвможности находить локаторы разными способами")
     public void checkLocators() {
         driver.get("https://www.saucedemo.com/");
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
