@@ -1,9 +1,11 @@
 package base;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
 import utils.listeners.TestListener;
@@ -22,7 +24,8 @@ public class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void setup(@Optional("chrome") String browser) {
+    @Step("Открытие браузера")
+    public void setup(@Optional("chrome") String browser, ITestContext context) {
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
@@ -31,6 +34,8 @@ public class BaseTest {
             driver = new EdgeDriver();
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        // в контекст теста добавляем драйвер по ключу 'driver'. Он потом передается в метод onTestFailure в Listener'е
+        context.setAttribute("driver", driver);
 
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
@@ -40,6 +45,7 @@ public class BaseTest {
     }
 
     @AfterMethod(alwaysRun = true)
+    @Step("Закрытие браузера")
     public void tearDown() {
         driver.quit();
     }

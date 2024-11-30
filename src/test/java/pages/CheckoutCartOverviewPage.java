@@ -1,6 +1,7 @@
 package pages;
 
 import base.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,6 +16,7 @@ public class CheckoutCartOverviewPage extends BasePage {
         super(driver);
     }
 
+    @Step("Получение итоговой стоимости товаров")
     public double getActualTotalRawPrice() {
         String totalPriceText = driver.findElement(TOTAL_RAW_PRICE).getText();
         return extractPrice(totalPriceText);

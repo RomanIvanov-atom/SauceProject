@@ -1,6 +1,7 @@
 package pages;
 
 import base.BasePage;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,16 +18,19 @@ public class CheckoutClientInfoPage extends BasePage {
         super(driver);
     }
 
+    @Step("Заполнение всех полей")
     public void fillAllInputs(String firstName, String lastName, String zipCode) {
         driver.findElement(FIRST_NAME_INPUT).sendKeys(firstName);
         driver.findElement(LAST_NAME_INPUT).sendKeys(lastName);
         driver.findElement(POSTAL_CODE_INPUT).sendKeys(zipCode);
     }
 
+    @Step("Нажатие кнопки 'Продолжить'")
     public void clickContinueButton() {
         driver.findElement(CONTINUE_BUTTON).click();
     }
 
+    @Step("Получение информации о видимости сообщения об ошибке")
     public boolean isValidationErrorVisible() {
         return driver.findElement(VALIDATION_ERROR_MESSAGE).isDisplayed();
     }

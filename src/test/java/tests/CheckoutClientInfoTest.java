@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import products.Products;
@@ -11,6 +12,7 @@ public class CheckoutClientInfoTest extends BaseTest {
 
     @Test (testName = "Проверка заполнения полной информации о клиенте валидными данными",
             description = "Проверка заполнения полной информации о клиенте валидными данными")
+    @Description("Проверка заполнения полной информации о клиенте валидными данными")
     public void checkFillClientInfoFieldsWithValidData() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -28,6 +30,7 @@ public class CheckoutClientInfoTest extends BaseTest {
 
     @Test (testName = "Проверка заполнения полной информации о клиенте невалидными данными",
             description = "Проверка заполнения полной информации о клиенте невалидными данными")
+    @Description("Проверка заполнения полной информации о клиенте невалидными данными")
     public void checkFillClientInfoFieldsWithInvalidData() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
