@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import products.Products;
 
@@ -14,6 +15,7 @@ public class CartTest extends BaseTest {
 
     @Test (testName = "Some test name. Текст для отображения в прогоне IDEA", description = "Description. для тестРепортов",
             enabled = false)
+    @Description("Description от Allure")
     public void checkAdd1ItemInCart() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -28,6 +30,7 @@ public class CartTest extends BaseTest {
 
     @Test (testName = "Проверка добавления нескольких товаров в корзину",
             description = "Проверка добавления нескольких товаров в корзину")
+    @Description("Проверка добавления нескольких товаров в корзину")
             public void checkAddManyItemsInCart() {
         List<String> products = new ArrayList<>(Arrays.asList(
                 Products.LIGHT,
@@ -50,6 +53,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test (testName = "Проверка удаления одного товара с корзины", description = "Проверка удаления одного товара с корзины")
+    @Description("Проверка удаления одного товара с корзины")
     public void checkDelete1ItemFromCart() {
         List<String> products = new ArrayList<>(Arrays.asList(
                 Products.BACKPACK,
@@ -78,6 +82,7 @@ public class CartTest extends BaseTest {
 
     @Test (testName = "Проверка удаления нескольких товаров с корзины",
             description = "Проверка удаления нескольких товаров с корзины")
+    @Description("Проверка удаления нескольких товаров с корзины")
     public void checkDeleteManyItemsFromCart() {
         List<String> products = new ArrayList<>(Arrays.asList(
                 Products.LIGHT,

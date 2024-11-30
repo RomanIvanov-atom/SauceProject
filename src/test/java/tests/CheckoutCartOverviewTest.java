@@ -1,6 +1,7 @@
 package tests;
 
 import base.BaseTest;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import products.Products;
@@ -15,6 +16,7 @@ public class CheckoutCartOverviewTest extends BaseTest {
 
     @Test (testName = "Проверка расчета общей суммы за все товары в корзине",
             description = "Проверка расчета общей суммы за все товары в корзине")
+    @Description("Проверка расчета общей суммы за все товары в корзине")
     public void checkTotalAmountForItems() {
         List<String> products = new ArrayList<>(Arrays.asList(
                 Products.LIGHT,
