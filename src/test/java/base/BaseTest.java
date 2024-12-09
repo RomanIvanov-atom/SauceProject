@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
@@ -29,9 +30,13 @@ public class BaseTest {
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
+            options.addArguments("headless");
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("edge")) {
-            driver = new EdgeDriver();
+            EdgeOptions options = new EdgeOptions();
+            options.addArguments("start-maximized");
+            options.addArguments("headless");
+            driver = new EdgeDriver(options);
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         // в контекст теста добавляем драйвер по ключу 'driver'. Он потом передается в метод onTestFailure в Listener'е
@@ -47,6 +52,8 @@ public class BaseTest {
     @AfterMethod(alwaysRun = true)
     @Step("Закрытие браузера")
     public void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
