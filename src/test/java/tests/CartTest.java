@@ -60,7 +60,7 @@ public class CartTest extends BaseTest {
                 Products.LIGHT));
 
         loginPage.open();
-        loginPage.login("standard_user1", "secret_sauce");
+        loginPage.login("standard_user", "secret_sauce");
 
         products.stream().forEach(productsPage::clickAddButton);
         productsPage.clickShoppingCart();
