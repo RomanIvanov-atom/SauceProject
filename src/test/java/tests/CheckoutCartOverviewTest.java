@@ -24,7 +24,7 @@ public class CheckoutCartOverviewTest extends BaseTest {
                 Products.ONESIE));
 
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
 
         products.stream().forEach(productsPage::clickAddButton);
         productsPage.clickShoppingCart();

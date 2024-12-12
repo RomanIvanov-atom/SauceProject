@@ -9,7 +9,6 @@
         <classes>
             <class name = "tests.LoginTest"/>
             <class name = "tests.CheckoutClientInfoTest"/>
-            <class name = "tests.LocatorTest"/>
             <parameter name="browser" value="chrome"/>
         </classes>
     </test>

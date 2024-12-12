@@ -15,7 +15,7 @@ public class CheckoutClientInfoTest extends BaseTest {
     @Description("Проверка заполнения полной информации о клиенте валидными данными")
     public void checkFillClientInfoFieldsWithValidData() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
 
         productsPage.clickAddButton(Products.BACKPACK);
         productsPage.clickShoppingCart();
@@ -33,7 +33,7 @@ public class CheckoutClientInfoTest extends BaseTest {
     @Description("Проверка заполнения полной информации о клиенте невалидными данными")
     public void checkFillClientInfoFieldsWithInvalidData() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
 
         productsPage.clickAddButton(Products.BACKPACK);
         productsPage.clickShoppingCart();

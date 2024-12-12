@@ -18,7 +18,7 @@ public class CartTest extends BaseTest {
     @Description("Description от Allure")
     public void checkAdd1ItemInCart() {
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
         productsPage.clickAddButton(Products.BACKPACK);
         productsPage.clickShoppingCart();
         String actualProductName = cartPage.getItemNameInCart();
@@ -38,7 +38,7 @@ public class CartTest extends BaseTest {
                 Products.ONESIE));
 
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
 
         products.stream().forEach(productsPage::clickAddButton);
         productsPage.clickShoppingCart();
@@ -60,7 +60,7 @@ public class CartTest extends BaseTest {
                 Products.LIGHT));
 
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
 
         products.stream().forEach(productsPage::clickAddButton);
         productsPage.clickShoppingCart();
@@ -96,7 +96,7 @@ public class CartTest extends BaseTest {
                 Products.ONESIE));
 
         loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(user, password);
 
         products.stream().forEach(productsPage::clickAddButton);
         productsPage.clickShoppingCart();

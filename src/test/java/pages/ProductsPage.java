@@ -2,9 +2,11 @@ package pages;
 
 import base.BasePage;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class ProductsPage extends BasePage {
 
     private final By TITLE = By.cssSelector(".title");
@@ -20,22 +22,26 @@ public class ProductsPage extends BasePage {
 
     @Step("Получение тайтла")
     public String getTitle() {
+        log.info("Get page's title");
         return driver.findElement(TITLE).getText();
     }
 
     @Step("Добавление товара с именем {productName} в корзину")
     public void clickAddButton(String productName) {
+        log.info("Add {} in cart", productName);
         By addToCart = By.xpath(String.format(ADD_TO_CART_PATTERN, productName));
         driver.findElement(addToCart).click();
     }
 
     @Step("Клик по корзине")
     public void clickShoppingCart() {
+        log.info("Click 'Cart");
         driver.findElement(CART_LINK).click();
     }
 
     @Step("Получение количества продуктов на главной странице")
     public int getCountOfProductsOnProductsPage() {
+        log.info("Get count of products on main page");
         return driver.findElements(UNIQUE_ITEM).size();
     }
 

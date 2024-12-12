@@ -1,6 +1,7 @@
 package base;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,10 +10,12 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
+import utils.PropertyReader;
 import utils.listeners.TestListener;
 
 import java.time.Duration;
 
+@Log4j2
 @Listeners(TestListener.class)
 public class BaseTest {
 
@@ -22,11 +25,14 @@ public class BaseTest {
     protected CartPage cartPage;
     protected CheckoutClientInfoPage checkoutClientInfoPage;
     protected CheckoutCartOverviewPage checkoutCartOverviewPage;
+    protected String user = System.getProperty("user", PropertyReader.getProperty("user"));
+    protected String password = System.getProperty("password", PropertyReader.getProperty("password"));
 
     @Parameters({"browser"})
     @BeforeMethod
     @Step("Открытие браузера")
     public void setup(@Optional("chrome") String browser, ITestContext context) {
+        log.info("Opening page");
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
