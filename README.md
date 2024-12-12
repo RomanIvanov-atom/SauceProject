@@ -1,3 +1,6 @@
+Link on Allure report https://romanivanov-atom.github.io/SauceProject/
+
+
 ## 1. Страница входа (Login Page)
 
 - [ ] Валидные логин/пароль
