@@ -35,7 +35,7 @@ public class ProductsPage extends BasePage {
 
     @Step("Клик по корзине")
     public void clickShoppingCart() {
-        log.info("Click 'Cart");
+        log.info("Click 'Cart'");
         driver.findElement(CART_LINK).click();
     }
 
